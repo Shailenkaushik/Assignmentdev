@@ -11,11 +11,25 @@ const app = express();
 // You have been given a numberOfRequestsForUser object to start off with which
 // clears every one second
 
-let numberOfRequestsForUser = {};
+let numberOfRequestsForUser = 0;
 setInterval(() => {
-    numberOfRequestsForUser = {};
-}, 1000)
+    numberOfRequestsForUser = 0;
+}, 2000)
 
+function reqmiddleware(req,res,next){
+  if(numberOfRequestsForUser>=5){
+    res.status(404).send("too many request")
+  }
+  else{
+    next();
+  }
+}
+function cntmiddleware(req,res,next){
+  numberOfRequestsForUser++;
+  next();
+}
+app.use(reqmiddleware);
+app.use(cntmiddleware);
 app.get('/user', function(req, res) {
   res.status(200).json({ name: 'john' });
 });
@@ -25,3 +39,4 @@ app.post('/user', function(req, res) {
 });
 
 module.exports = app;
+app.listen(3000)
