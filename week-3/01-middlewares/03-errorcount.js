@@ -26,7 +26,8 @@ app.get('/errorCount', function(req, res) {
 app.use(function(err,req,res,next){
   console.log("in app.use");
      errorCount++;
-            res.send("hello")
+            res.send(404)
+            next()
 });
 module.exports = app;
 app.listen(3000);

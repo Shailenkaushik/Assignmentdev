@@ -14,7 +14,7 @@ function cntmiddleware(req,res,next){
   requestCount++;
   next();
 }
-
+app.use(cntmiddleware);
 app.get('/user', function(req, res) {
   res.status(200).json({ name: 'john' });
 });
@@ -28,4 +28,4 @@ app.get('/requestCount', function(req, res) {
 });
 
 module.exports = app;
-app.listen(3000)
+app.listen(3002)

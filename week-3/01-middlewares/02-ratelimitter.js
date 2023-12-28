@@ -14,7 +14,7 @@ const app = express();
 let numberOfRequestsForUser = 0;
 setInterval(() => {
     numberOfRequestsForUser = 0;
-}, 2000)
+}, 1000)
 
 function reqmiddleware(req,res,next){
   if(numberOfRequestsForUser>=5){
@@ -39,4 +39,4 @@ app.post('/user', function(req, res) {
 });
 
 module.exports = app;
-app.listen(3000)
+app.listen(3001)
