@@ -15,7 +15,7 @@ describe('GET /user', function() {
   it('If there is an exception, errCount goes up', function(done) {
           for (let i = 0; i<10; i++) {
             request(app)
-                  .get('/user')
+                  .get('/user') 
                   .then();
           }
           request(app)
