@@ -2,8 +2,8 @@ const http = require('http');
 const { v4: uuidv4 } = require('uuid');
 
 const server = require('../todoServer');
-const port = 3000;
-const baseUrl = `http://localhost:${port}`;
+const port = 3001;
+const baseUrl = `https://nodejs.cseiiits2025.repl.co`;
 
 describe('Todo API', () => {
   let createdTodoId;
